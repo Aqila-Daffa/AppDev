@@ -1,0 +1,48 @@
+a:link {
+    text-decoration: none;
+}
+
+.bck {
+    background-color: rgb(22, 75, 44);
+    border-radius: 20%;
+}
+
+.user_logo_bord {
+    position: absolute;
+    height: 140px;
+    width: 140px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 50%;
+    background: rgb(87, 255, 241);
+    top: -65px;
+    text-align: center;
+}
+
+.user_logo {
+    position: absolute;
+    top: -15px;
+    height: 170px;
+    width: 270px;
+    padding: 10px;
+}
+
+.dropdown-menu {
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin: 2% 1%;
+    transition: 0.3s ease-in-out;
+}
+
+.dropdown-item {
+    color: white;
+    transition: 5ms ease-in-out;
+}
+.dropdown-item:hover {
+    border-radius: 5px;
+}
+.dropdown-item:active {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+}

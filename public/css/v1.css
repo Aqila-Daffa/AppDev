@@ -1,9 +1,9 @@
 .carousel-control-prev-icon {
-    background-image: url("../images/1.png") !important;
+    background-image: url("../images/back.png") !important;
     height: 100px;
     width: 100px;
 }
 
 .carousel-control-next-icon {
-    background-image: url("../images/2.png") !important;
+    background-image: url("../images/next.png") !important;
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\menuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +15,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('client/index');
+    return view('index');
 });
+
+// auth route
+
+Route::get('/signin', function () {
+    return view('auth/login');
+});
+
+Route::get('/signup', function () {
+    return view('auth/register');
+});
+
+
+// Client Page
+
+Route::get('/home', function () {
+    return view('client/mainpage');
+});
+
+Route::get('/menu', [menuController::class, 'indexAction']);
