@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\menuController;
+use App\Http\Controllers\AuthCon\RegisterController;
+use App\Http\Controllers\AuthCon\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,23 +18,24 @@ use App\Http\Controllers\menuController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->middleware('guest');
 
 // auth route
+Route::get('/signin', [LoginController::class, 'index'])->name('login')->middleware('guest');
 
-Route::get('/signin', function () {
-    return view('auth/login');
-});
+Route::get('/signup', [RegisterController::class, 'index'])->middleware('guest');
 
-Route::get('/signup', function () {
-    return view('auth/register');
-});
+// register functionality
+Route::post('/register', [RegisterController::class, 'store']);
+
+// login and logout functionality
+Route::post('/login', [LoginController::class, 'loginAuth']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
 
 // Client Page
-
 Route::get('/home', function () {
     return view('client/mainpage');
-});
+})->middleware('auth');
 
 Route::get('/menu', [menuController::class, 'indexAction']);
