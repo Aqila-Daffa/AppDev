@@ -38,4 +38,14 @@ Route::get('/home', function () {
     return view('client/mainpage');
 })->middleware('auth');
 
-Route::get('/menu', [menuController::class, 'indexAction']);
+Route::get('/menu', [MenuController::class, 'indexAction']);
+
+// Admin Page
+Route::get('/addmenu', function () {
+    return view('admin/addmenu');
+});
+
+Route::get('/addmenu', function () {
+    return view('admin/addmenu');
+});
+Route::post('/addmenuitem', [MenuController::class, 'storeMenu']);
