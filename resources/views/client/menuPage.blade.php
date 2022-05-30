@@ -1,4 +1,4 @@
-@extends('client.layout.menuLayout')
+@extends('client.layout.orderingLayout')
 @section('title', 'OSOS | Menu')
 @section('section')
 

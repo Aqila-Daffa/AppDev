@@ -38,14 +38,15 @@ Route::get('/home', function () {
     return view('client/mainpage');
 })->middleware('auth');
 
-Route::get('/menu', [MenuController::class, 'indexAction']);
+Route::get('/purchased', function () {
+    return view('client/purchasedpage');
+})->middleware('auth');
+
+Route::get('/menu', [MenuController::class, 'indexAction'])->middleware('auth');
 
 // Admin Page
 Route::get('/addmenu', function () {
     return view('admin/addmenu');
 });
 
-Route::get('/addmenu', function () {
-    return view('admin/addmenu');
-});
 Route::post('/addmenuitem', [MenuController::class, 'storeMenu']);
