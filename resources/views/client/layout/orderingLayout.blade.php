@@ -53,7 +53,7 @@ session_start();
                 <a class="nav-link" href="#">Cart</a>
               </li>
               <li class="nav-item ml-5 dropdown">
-                <a class="nav-link" href="#">Purchased</a>
+                <a class="nav-link" href="/purchased">Purchased</a>
               </li>
             </ul>
 

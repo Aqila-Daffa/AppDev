@@ -56,7 +56,7 @@ session_start();
                 <a class="nav-link" href="#Product">Product</a>
               </li>
               <li class="nav-item me-5 dropdown">
-                <a class="nav-link" href="#">Purchased</a>
+                <a class="nav-link" href="/purchased">Purchased</a>
               </li>
               <li class="nav-item" style="margin-top: -3px; margin-right: -50px; margin-left: 30px;">
                 <a class="nav-link" href="#"><img src="{{asset('images/basket.png')}}" width="25px" height="25px"></a>
