@@ -19,7 +19,7 @@
               <h5 class="card-title">{{ $menuItem['name'] }}</h5>
               <p class="card-text">In this page, you can check all the list of our food menu.</p>
               <div class="d-flex justify-content-center">
-              <a href="#" class="btn btn-primary">Check Menu</a>
+              <a href="/menudetail?name={{ $menuItem['name'] }}&product={{$prod}}" class="btn btn-primary">Check Menu</a>
               </div>
             </div>
           </div>

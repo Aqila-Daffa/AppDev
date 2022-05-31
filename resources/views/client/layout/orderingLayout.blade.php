@@ -12,6 +12,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{url('css/styl1.css')}}" rel="stylesheet" type="text/css">
     <link href="{{url('css/styl2.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{url('css/styl4.css')}}" rel="stylesheet" type="text/css">
     <script src="{{url('js/vjs1.js')}}" type="text/javascript"></script> 
 
     <!-- Bootstrap CSS -->

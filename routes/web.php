@@ -43,6 +43,7 @@ Route::get('/purchased', function () {
 })->middleware('auth');
 
 Route::get('/menu', [MenuController::class, 'indexAction'])->middleware('auth');
+Route::get('/menudetail', [MenuController::class, 'menuDetail'])->middleware('auth');
 
 // Admin Page
 Route::get('/addmenu', function () {
