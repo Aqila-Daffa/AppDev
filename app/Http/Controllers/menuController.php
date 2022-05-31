@@ -13,6 +13,12 @@ class menuController extends Controller
         return view('client/menupage', ['prod' => $product, 'menu' => $menuItems]);
     }
 
+    public function menuDetail(){
+        $fname = $_GET["name"];
+        $menuDetail = FoodMenu::where('name', $fname)->get();
+        return view('client/menuDetailsPage', ['foodName' => $menuDetail]);
+    }
+
     public function storeMenu(Request $request){
         //dd($request);
         //return $request->file('image')->store('menu-images');
