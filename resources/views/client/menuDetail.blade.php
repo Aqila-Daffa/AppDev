@@ -5,7 +5,7 @@
 <div class="container mb-5" style="margin-top: 85px;">
     <div class="row d-flex justify-content-center">
         <div class="col-md-10">
-            <div class="card">
+            <div class="card" style="margin-bottom: 50px;">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="images">
@@ -15,7 +15,7 @@
                     <div class="col-md-6">
                         <div class="product p-4">
                             <div class="d-flex justify-content-between align-items-center">
-                                <a href="/menu?product={{$prod}}"class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i>&nbsp;<span class="ml-1">Back</span> </a> <i class="fa fa-shopping-cart text-muted">&nbsp;&nbsp;&nbsp;<i class="fa fa-share-alt text-muted"></i> </i>
+                                <a href="/menu?product={{$prod}}"class="d-flex align-items-center"> <i class="fa fa-long-arrow-left"></i>&nbsp;<span class="ml-1">Back</span></a>
                             </div>
                             <div class="mt-4 mb-3"> <span class="text-uppercase text-muted brand">Menu Details</span>
                                 <h5 class="text-uppercase">{{ $foodNames['name'] }}</h5>

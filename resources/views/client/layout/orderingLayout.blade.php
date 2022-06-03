@@ -48,10 +48,10 @@ session_start();
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item me-2">
-                <a class="nav-link active" aria-current="page" href="\home">Home</a>
+                <a class="nav-link" aria-current="page" href="\home">Home</a>
               </li>
               <li class="nav-item ml-5 dropdown">
-                <a class="nav-link" href="#">Cart</a>
+                <a class="nav-link" href="/cart">Cart</a>
               </li>
               <li class="nav-item ml-5 dropdown">
                 <a class="nav-link" href="/purchased">Purchased</a>

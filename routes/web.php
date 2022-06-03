@@ -17,13 +17,19 @@ use App\Http\Controllers\AuthCon\RegisterController;
 |
 */
 
+// ***** Landing Page *****
+
 Route::get('/', function () {
     return view('index');
 })->middleware('guest');
 
+// *************************
+
+
+// ***** Authentication Function *****
+
 // auth route
 Route::get('/signin', [LoginController::class, 'index'])->name('login')->middleware('guest');
-
 Route::get('/signup', [RegisterController::class, 'index'])->middleware('guest');
 
 // register functionality
@@ -33,23 +39,34 @@ Route::post('/register', [RegisterController::class, 'store']);
 Route::post('/login', [LoginController::class, 'loginAuth']);
 Route::post('/logout', [LoginController::class, 'logout']);
 
+// ****************************************
 
-// Client Page
+
+// ***** Client Page *****
+
 Route::get('/home', function () {
     return view('client/mainpage');
 })->middleware('auth');
 
+// menu feature
+Route::get('/menu', [MenuController::class, 'indexAction'])->middleware('auth');
+Route::get('/menudetail', [MenuController::class, 'menuDetail'])->middleware('auth');
+
+// payment feature
+Route::get('/cart', [PaymentController::class, 'indexCart'])->middleware('auth');
 Route::get('/purchased', function () {
     return view('client/purchasedpage');
 })->middleware('auth');
 
-Route::get('/menu', [MenuController::class, 'indexAction'])->middleware('auth');
-Route::get('/menudetail', [MenuController::class, 'menuDetail'])->middleware('auth');
-Route::get('/cart', [PaymentController::class, 'indexCart'])->middleware('auth');
+// ******************************
 
-// Admin Page
+
+// ***** Admin Page *****
+
 Route::get('/addmenu', function () {
     return view('admin/addmenu');
 });
 
 Route::post('/addmenuitem', [MenuController::class, 'storeMenu']);
+
+// ******************************
