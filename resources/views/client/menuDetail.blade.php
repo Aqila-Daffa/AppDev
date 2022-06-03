@@ -1,5 +1,5 @@
 @extends('client.layout.orderingLayout')
-@section('title', 'OSOS | Menu')
+@section('title', 'OSOS | Menu Detail')
 @section('section')
 @foreach($foodName as $foodNames)
 <div class="container mb-5" style="margin-top: 85px;">

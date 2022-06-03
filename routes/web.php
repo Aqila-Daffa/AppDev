@@ -2,8 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\menuController;
-use App\Http\Controllers\AuthCon\RegisterController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\AuthCon\LoginController;
+use App\Http\Controllers\AuthCon\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,8 +45,7 @@ Route::get('/purchased', function () {
 
 Route::get('/menu', [MenuController::class, 'indexAction'])->middleware('auth');
 Route::get('/menudetail', [MenuController::class, 'menuDetail'])->middleware('auth');
-
-Route::get('/menudetail', [MenuController::class, 'menuDetail'])->middleware('auth');
+Route::get('/cart', [PaymentController::class, 'indexCart'])->middleware('auth');
 
 // Admin Page
 Route::get('/addmenu', function () {
