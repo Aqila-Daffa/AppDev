@@ -17,21 +17,21 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="/adminlayout" class="active">
+          <a href="/adminlayout">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
           <a href="/adminmenu">
-            <i class='bx bx-box'></i>
+            <i class='bx bx-box' ></i>
             <span class="links_name">Menu</span>
           </a>
         </li>
         <li>
-          <a href="/admintrans">
+          <a href="/admintrans" class="active">
             <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Transaction list</span>
+            <span class="links_name">Transaction List</span>
           </a>
         </li>
         <li>
@@ -46,15 +46,13 @@
             <span class="links_name">Switch to User</span>
           </a>
         </li>
- 
         <li>
           <a href="/adminuser">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">User List</span>
           </a>
         </li>
-
-
+        
         <li>
           <a href="#">
             <i class='bx bx-book-alt' ></i>
@@ -75,48 +73,69 @@
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Dashboard</span>
+        <span class="dashboard">Transaction List</span>
       </div>
       
     </nav>
 
     <div class="home-content">
       <div class="overview-boxes">
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Menu</div>
-            <div class="indicator">              
-              <span class="text">For admin to check and edit menu in the restaurant</span>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Transaction List</div>
-            <div class="indicator">
-              <span class="text">For admin to check and edit transaction </span>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Payment List</div>
-            <div class="indicator">
-              <span class="text">For admin to check user payment status</span>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Switch to User/Cashier</div>
-            <div class="indicator">
-              <span class="text">For admin to switch the view as a user or cashier</span>
-            </div>
-          </div>
-        </div>
+      
       </div>
 
-     
+      <div class="sales-boxes">
+        <div class="recent-sales box">
+          <div class="title">Recent Sales</div>
+          <div class="sales-details">
+            <ul class="details">
+              <li class="topic">Date</li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+            </ul>
+            <ul class="details">
+            <li class="topic">Customer</li>
+            <li><a href="#">Alex Doe</a></li>
+            <li><a href="#">David Mart</a></li>
+            <li><a href="#">Roe Parter</a></li>
+            <li><a href="#">Diana Penty</a></li>
+            <li><a href="#">Martin Paw</a></li>
+            <li><a href="#">Doe Alex</a></li>
+            <li><a href="#">Aiana Lexa</a></li>
+            <li><a href="#">Rexel Mags</a></li>
+             <li><a href="#">Tiana Loths</a></li>
+          </ul>
+          <ul class="details">
+            <li class="topic">Menu</li>
+            <li><a href="#">Biryani rice</a></li>
+            <li><a href="#">Biryani rice</a></li>
+            <li><a href="#">Roti Jala</a></li>
+            <li><a href="#">Bakso</a></li>
+            <li><a href="#">Nasi Lemak</a></li>
+            <li><a href="#">Bakso</a></li>
+            <li><a href="#">Nasi Lemak</a></li>
+             <li><a href="#">Nasi Lemak</a></li>
+            <li><a href="#">Zamburger</a></li>
+          </ul>
+          <ul class="details">
+            <li class="topic">Status</li>
+            <li><a href="#">Pending</a></li>
+            <li><a href="#">Complete</a></li>
+            <li><a href="#">Complete</a></li>
+            <li><a href="#">Complete</a></li>
+            <li><a href="#">Complete</a></li>
+            <li><a href="#">Pending</a></li>
+            <li><a href="#">Complete</a></li>
+             <li><a href="#">Complete</a></li>
+             <li><a href="#">Complete</a></li>
+          </ul>
+          </div>
+          <div class="button">
+         
 
   <script>
    let sidebar = document.querySelector(".sidebar");

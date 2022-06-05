@@ -17,21 +17,21 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="/adminlayout" class="active">
+          <a href="/adminlayout" >
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="/adminmenu">
-            <i class='bx bx-box'></i>
+          <a href="/adminmenu" >
+            <i class='bx bx-box' ></i>
             <span class="links_name">Menu</span>
           </a>
         </li>
         <li>
           <a href="/admintrans">
             <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Transaction list</span>
+            <span class="links_name">Transaction List</span>
           </a>
         </li>
         <li>
@@ -40,21 +40,20 @@
             <span class="links_name">Payment List</span>
           </a>
         </li>
+
         <li>
           <a href="/">
             <i class='bx bx-coin-stack' ></i>
             <span class="links_name">Switch to User</span>
           </a>
         </li>
- 
         <li>
-          <a href="/adminuser">
+          <a href="/adminuser" class="active">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">User List</span>
           </a>
         </li>
-
-
+        
         <li>
           <a href="#">
             <i class='bx bx-book-alt' ></i>
@@ -75,48 +74,77 @@
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Dashboard</span>
+        <span class="dashboard">User</span>
       </div>
       
     </nav>
 
     <div class="home-content">
       <div class="overview-boxes">
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Menu</div>
-            <div class="indicator">              
-              <span class="text">For admin to check and edit menu in the restaurant</span>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Transaction List</div>
-            <div class="indicator">
-              <span class="text">For admin to check and edit transaction </span>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Payment List</div>
-            <div class="indicator">
-              <span class="text">For admin to check user payment status</span>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Switch to User/Cashier</div>
-            <div class="indicator">
-              <span class="text">For admin to switch the view as a user or cashier</span>
-            </div>
-          </div>
-        </div>
+        
       </div>
 
-     
+      <div class="sales-boxes">
+        <div class="recent-sales box">
+          <div class="title">User List</div>
+          <div class="sales-details">
+            
+            <ul class="details">
+            <li class="topic">User</li>
+            <li><a href="#">abul</a></li>
+            <li><a href="#">rafiq</a></li>
+            <li><a href="#">fazil</a></li>
+            <li><a href="#">kumang</a></li>
+            <li><a href="#">aswan</a></li>
+            <li><a href="#">fulan</a></li>
+            <li><a href="#">mei kie</a></li>
+            <li><a href="#">falajur</a></li>
+             <li><a href="#">adibah</a></li>
+          </ul>
+          <ul class="details">
+            <li class="topic">last active</li>
+            <li><a href="#">11/22/2021</a></li>
+            <li><a href="#">1/31/2022</a></li>
+            <li><a href="#">4/18/2022</a></li>
+            <li><a href="#">2/23/2022</a></li>
+            <li><a href="#">5/08/2022</a></li>
+            <li><a href="#">2/01/2022</a></li>
+            <li><a href="#">3/29/2022</a></li>
+             <li><a href="#">5/24/2022</a></li>
+            <li><a href="#">2/21/2021</a></li>
+          </ul>
+         
+          </div>
+          <div class="button">
+            <a href="#">See All</a>
+          </div>
+        </div>
+        <div class="top-sales box">
+          <div class="title">Options</div>
+          <ul class="top-sales-details">
+            <li>
+            <a href="#">
+              <img src="images/plus.png" alt="">
+              <span class="product">Insert User </span>
+            </a>
+            
+          </li>
+          <li>
+            <a href="#">
+              <img src="images/minus.png" alt="">
+              <span class="product">Delete User </span>
+            </a>
+           
+          </li>
+          <li>
+           
+            
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script>
    let sidebar = document.querySelector(".sidebar");

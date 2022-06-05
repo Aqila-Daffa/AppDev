@@ -37,4 +37,18 @@ class menuController extends Controller
         FoodMenu::create($valData);
         return back()->with('success', 'New menu was added!');
     }
+
+    public function deleteMenuPage(){
+
+        $menu = FoodMenu::all();
+        return view('admin/deletemenu', ['menulist' => $menu]);
+    }
+
+    public function deleteMenu(Request $request){
+        $fname = $_POST["fname"];
+        $menu = FoodMenu::findOrFail($fname);
+        Storage::disk('local')->delete('public/menu-images/'.$menu->image);
+        $menu->delete();
+        return back()->with('success', 'Menu item was deleted!');
+    }
 }
