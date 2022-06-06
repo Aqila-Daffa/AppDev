@@ -45,10 +45,6 @@ class menuController extends Controller
     }
 
     public function deleteMenu(Request $request){
-        $fname = $_POST["fname"];
-        $menu = FoodMenu::findOrFail($fname);
-        Storage::disk('local')->delete('public/menu-images/'.$menu->image);
-        $menu->delete();
         return back()->with('success', 'Menu item was deleted!');
     }
 }
