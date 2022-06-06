@@ -32,9 +32,10 @@
     
     <main class="form-signin">
       @if(session()->has('success'))
-          <div class="alert alert-success alert-dismissible fade show my-2 text-center" role="alert">
-              {{ session('success') }}
-          </div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>{{ session('success') }}</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
       @endif
       <form method="post" action="/addmenuitem" enctype="multipart/form-data">
         @csrf

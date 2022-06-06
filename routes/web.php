@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\menuController;
 use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthCon\LoginController;
 use App\Http\Controllers\AuthCon\RegisterController;
 
@@ -55,6 +54,7 @@ Route::get('/menudetail', [MenuController::class, 'menuDetail'])->middleware('au
 
 // payment feature
 Route::get('/cart', [PaymentController::class, 'indexCart'])->middleware('auth');
+Route::post('/addcart', [PaymentController::class, 'addCart'])->middleware('auth');
 Route::get('/purchased', function () {
     return view('client/purchasedpage');
 })->middleware('auth');
