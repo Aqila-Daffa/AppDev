@@ -55,10 +55,8 @@ Route::get('/menudetail', [MenuController::class, 'menuDetail'])->middleware('au
 // payment feature
 Route::get('/cart', [PaymentController::class, 'indexCart'])->middleware('auth');
 Route::post('/addcart', [PaymentController::class, 'addCart'])->middleware('auth');
-Route::get('/purchased', function () {
-    return view('client/purchasedpage');
-})->middleware('auth');
-
+Route::post('/payment', [PaymentController::class, 'payment'])->middleware('auth');
+Route::get('/purchased', [PaymentController::class, 'indexPurchased'])->middleware('auth');
 // ******************************
 
 
