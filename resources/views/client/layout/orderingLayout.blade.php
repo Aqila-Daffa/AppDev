@@ -14,6 +14,7 @@ session_start();
     <link href="{{url('css/styl2.css')}}" rel="stylesheet" type="text/css">
     <link href="{{url('css/style4.css')}}" rel="stylesheet" type="text/css">
     <script src="{{url('js/vjs1.js')}}" type="text/javascript"></script> 
+    <script src="{{url('js/quantity.js')}}" type="text/javascript"></script> 
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -23,8 +24,12 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 
     <!-- ICONS -->
-  <link rel="icon" href="{{asset('projectad/assets/icon/favicon.ico')}}" />
-  <script src="https://kit.fontawesome.com/f9c45ad44a.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/87a5a439ac.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{{asset('projectad/assets/icon/favicon.ico')}}" />
+    <script src="https://kit.fontawesome.com/f9c45ad44a.js" crossorigin="anonymous"></script>
+
+    {{-- jQuery --}}
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
     <!-- CSS -->
     <style>

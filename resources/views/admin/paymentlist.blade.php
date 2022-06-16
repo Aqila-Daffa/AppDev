@@ -17,14 +17,14 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="/adminlayout" class="active">
+          <a href="/adminlayout">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
           <a href="/adminmenu">
-            <i class='bx bx-box'></i>
+            <i class='bx bx-box' ></i>
             <span class="links_name">Menu</span>
           </a>
         </li>
@@ -35,9 +35,9 @@
           </a>
         </li>
         <li>
-          <a href="/adminpayment">
+          <a href="/adminpayment" class="active">
             <i class='bx bx-pie-chart-alt-2' ></i>
-            <span class="links_name">Payment List</span>
+            <span class="links_name">Payment list</span>
           </a>
         </li>
         <li>
@@ -46,15 +46,14 @@
             <span class="links_name">Switch to User</span>
           </a>
         </li>
- 
+
         <li>
           <a href="/adminuser">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">User List</span>
           </a>
         </li>
-
-
+        
         <li>
           <a href="#">
             <i class='bx bx-book-alt' ></i>
@@ -75,48 +74,75 @@
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Dashboard</span>
+        <span class="dashboard">Payment List</span>
       </div>
       
     </nav>
 
     <div class="home-content">
       <div class="overview-boxes">
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Menu</div>
-            <div class="indicator">              
-              <span class="text">For admin to check and edit menu in the restaurant</span>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Transaction List</div>
-            <div class="indicator">
-              <span class="text">For admin to check and edit transaction </span>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Payment List</div>
-            <div class="indicator">
-              <span class="text">For admin to check user payment status</span>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Switch to User/Cashier</div>
-            <div class="indicator">
-              <span class="text">For admin to switch the view as a user or cashier</span>
-            </div>
-          </div>
-        </div>
+        
       </div>
 
-     
+      <div class="sales-boxes">
+        <div class="recent-sales box">
+          <div class="title">Recent Payment</div>
+          <div class="sales-details">
+            <ul class="details">
+              <li class="topic">Date</li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+              <li><a href="#">02 Jan 2021</a></li>
+            </ul>
+            <ul class="details">
+            <li class="topic">Customer</li>
+            <li><a href="#">Alex Doe</a></li>
+            <li><a href="#">David Mart</a></li>
+            <li><a href="#">Roe Parter</a></li>
+            <li><a href="#">Diana Penty</a></li>
+            <li><a href="#">Martin Paw</a></li>
+            <li><a href="#">Doe Alex</a></li>
+            <li><a href="#">Aiana Lexa</a></li>
+            <li><a href="#">Rexel Mags</a></li>
+             <li><a href="#">Tiana Loths</a></li>
+          </ul>
+          <ul class="details">
+            <li class="topic">Payment Status</li>
+            <li><a href="#">Paid</a></li>
+            <li><a href="#">Paid</a></li>
+            <li><a href="#">Paid</a></li>
+            <li><a href="#">Paid</a></li>
+            <li><a href="#">Paid</a></li>
+            <li><a href="#">Unpaid</a></li>
+            <li><a href="#">Unpaid</a></li>
+             <li><a href="#">Paid</a></li>
+            <li><a href="#">Paid</a></li>
+          </ul>
+          <ul class="details">
+            <li class="topic">Total</li>
+            <li><a href="#">RM 33</a></li>
+            <li><a href="#">RM 23</a></li>
+            <li><a href="#">RM 43</a></li>
+            <li><a href="#">RM 22</a></li>
+            <li><a href="#">RM 15</a></li>
+            <li><a href="#">RM 45</a></li>
+            <li><a href="#">RM 67</a></li>
+             <li><a href="#">RM 23</a></li>
+             <li><a href="#">RM 88</a></li>
+          </ul>
+          </div>
+          <div class="button">
+            <a href="#">See All</a>
+          </div>
+        </div>
+       
+      </div>
+    </div>
+  </section>
 
   <script>
    let sidebar = document.querySelector(".sidebar");

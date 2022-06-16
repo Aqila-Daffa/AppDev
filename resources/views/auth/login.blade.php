@@ -6,20 +6,16 @@
         <div class="row">
             <div class="col-sm-10 col-md-6 col-lg-5 mx-auto">
             @if(session()->has('success'))
-                <div class="alert alert-success alert-dismissible fade show my-2 text-center" role="alert">
-                    {{ session('success') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
+              <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>{{ session('success') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
             @endif
             @if(session()->has('logError'))
-                <div class="alert alert-danger alert-dismissible fade show my-2 text-center" role="alert">
-                    {{ session('logError') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ session('logError') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
             @endif
              <div class="card border-0 shadow" style="border-radius: 10%; background:rgb(45, 153, 117); top: 75px;">
                     <div class="d-flex justify-content-center">

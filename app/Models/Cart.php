@@ -5,9 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FoodMenu extends Model
+class Cart extends Model
 {
     use HasFactory;
+    public $timestamps = false;
 
     /**
      * The attributes that are mass assignable.
@@ -15,14 +16,13 @@ class FoodMenu extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'type',
-        'name',
-        'description',
-        'image',
-        'price',
+        'userId',
+        'menuId',
+        'quantity',
+        'notes',
     ];
 
-    public function cart(){
-        return $this->hasMany(Cart::class);
+    public function menu(){
+        return $this->belongsTo(FoodMenu::class, 'food_menu_id');
     }
 }

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FoodMenu extends Model
+class Payment extends Model
 {
     use HasFactory;
 
@@ -15,14 +15,14 @@ class FoodMenu extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'type',
-        'name',
-        'description',
-        'image',
-        'price',
+        'userId',
+        'tableNumber',
+        'cardType',
+        'cardName',
+        'cardNumber',
+        'cardExp',
+        'cardCvv',
+        'totalOrder',
+        'totalPrice',
     ];
-
-    public function cart(){
-        return $this->hasMany(Cart::class);
-    }
 }

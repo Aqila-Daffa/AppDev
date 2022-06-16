@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\menuController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthCon\LoginController;
 use App\Http\Controllers\AuthCon\RegisterController;
 
@@ -54,10 +55,10 @@ Route::get('/menudetail', [MenuController::class, 'menuDetail'])->middleware('au
 
 // payment feature
 Route::get('/cart', [PaymentController::class, 'indexCart'])->middleware('auth');
-Route::get('/purchased', function () {
-    return view('client/purchasedpage');
-})->middleware('auth');
-
+Route::post('/addcart', [PaymentController::class, 'addCart'])->middleware('auth');
+Route::post('/deletecart', [PaymentController::class, 'deleteCart'])->middleware('auth');
+Route::post('/payment', [PaymentController::class, 'payment'])->middleware('auth');
+Route::get('/purchased', [PaymentController::class, 'indexPurchased'])->middleware('auth');
 // ******************************
 
 
@@ -68,5 +69,25 @@ Route::get('/addmenu', function () {
 });
 
 Route::post('/addmenuitem', [MenuController::class, 'storeMenu']);
+Route::get('/deletemenu', [MenuController::class, 'deleteMenuPage']);
+Route::post('/deletemenuitem', [MenuController::class, 'deleteMenu']);
 
+Route::get('/adminlayout', function () {
+    return view('admin/layout/adminLayoutPage');
+});
+
+Route::get('/adminmenu', [AdminController::class, 'adminMenuIndex']);
+
+Route::get('/adminpayment', function () {
+    return view('admin/paymentlist');
+});
+
+Route::get('/adminuser', function () {
+    return view('admin/userlist');
+});
+Route::get('/deleteUser', [AdminController::class, 'adminUserIndex']);
+
+Route::get('/admintrans', function () {
+    return view('admin/transactionlist');
+});
 // ******************************
