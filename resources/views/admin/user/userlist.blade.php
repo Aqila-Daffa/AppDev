@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title> Responsiive Admin Dashboard | CodingLab </title>
+    <title> Admin User List | OSOS </title>
     <link href="{{url('css/style.css')}}" rel="stylesheet" type="text/css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -17,13 +17,13 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="/adminlayout" >
+          <a href="/admin" >
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="/adminmenu" class="active">
+          <a href="/adminmenu" >
             <i class='bx bx-box' ></i>
             <span class="links_name">Menu</span>
           </a>
@@ -48,7 +48,7 @@
           </a>
         </li>
         <li>
-          <a href="/adminuser">
+          <a href="/adminuser" class="active">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">User List</span>
           </a>
@@ -74,7 +74,7 @@
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Menu</span>
+        <span class="dashboard">User</span>
       </div>
       
     </nav>
@@ -86,30 +86,24 @@
 
       <div class="sales-boxes">
         <div class="recent-sales box">
-          <div class="title">Menu List</div>
+          <div class="title">User List</div>
           <div class="sales-details">
             <ul class="details">
               <li class="topic">ID</li>
-              @foreach($menulist as $menus)
-              <li>{{ $menus['id'] }}</li>
+              @foreach($users as $user)
+              <li>{{ $user['id'] }}</li>
               @endforeach
             </ul>
             <ul class="details">
-            <li class="topic">NAME</li>
-            @foreach($menulist as $menus)
-              <li>{{ $menus['name'] }}</li>
+            <li class="topic">USERNAME</li>
+            @foreach($users as $user)
+              <li>{{ $user['username'] }}</li>
               @endforeach
           </ul>
           <ul class="details">
-            <li class="topic">TYPE</li>
-            @foreach($menulist as $menus)
-              <li>{{ $menus['type'] }}</li>
-              @endforeach
-          </ul>
-          <ul class="details">
-            <li class="topic">PRICE</li>
-            @foreach($menulist as $menus)
-              <li>{{ $menus['price'] }}</li>
+            <li class="topic">EMAIL</li>
+            @foreach($users as $user)
+              <li>{{ $user['email'] }}</li>
               @endforeach
           </ul>
           </div>
@@ -118,17 +112,10 @@
         <div class="top-sales box">
           <div class="title">Options</div>
           <ul class="top-sales-details">
-            <li>
-            <a href="/addmenu">
-              <img src="images/plus.png" alt="">
-              <span class="product">Insert Menu</span>
-            </a>
-            
-          </li>
           <li>
-            <a href="/deletemenu">
+            <a href="deleteuser">
               <img src="images/minus.png" alt="">
-              <span class="product">Delete Menu </span>
+              <span class="product">Delete User</span>
             </a>
            
           </li>

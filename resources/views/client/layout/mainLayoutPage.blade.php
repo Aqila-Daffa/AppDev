@@ -11,7 +11,7 @@ session_start();
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{url('css/styl1.css')}}" rel="stylesheet" type="text/css">
-    <link href="{{url('css/styl2.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{url('css/style2.css')}}" rel="stylesheet" type="text/css">
     <script src="{{url('js/vjs1.js')}}" type="text/javascript"></script> 
 
     <!-- Bootstrap CSS -->
@@ -75,7 +75,7 @@ session_start();
                         <div class="d-lg-none dropdown-divider"></div>
                         <img class="border rounded-circle img-profile avatar" src="{{asset('images/profile.png')}}" width="30px" height="30px"></a>
                         <ul class="dropdown-menu shadow dropdown-menu-dark dropdown-menu-lg-end">
-                          <li class="dropdown-item" href="#"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</li>
+                          <a class="dropdown-item" href="/profile"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
                           {{-- <li class="dropdown-item" href="#"><i class="fas fa-id-card-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Switch to Admin</li> --}}
                           <div class="dropdown-divider"></div>
                           <form action="/logout" method="post">

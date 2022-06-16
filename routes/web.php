@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\menuController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\AuthCon\LoginController;
 use App\Http\Controllers\AuthCon\RegisterController;
 
@@ -49,6 +50,11 @@ Route::get('/home', function () {
     return view('client/mainpage');
 })->middleware('auth');
 
+// Profile Feature
+Route::get('/profile', [ClientController::class, 'index'])->middleware('auth');
+Route::get('/updateprofilepage', [ClientController::class, 'indexUpdate'])->middleware('auth');
+Route::post('/updateprofile', [ClientController::class, 'update'])->middleware('auth');
+
 // menu feature
 Route::get('/menu', [MenuController::class, 'indexAction'])->middleware('auth');
 Route::get('/menudetail', [MenuController::class, 'menuDetail'])->middleware('auth');
@@ -65,15 +71,15 @@ Route::get('/purchased', [PaymentController::class, 'indexPurchased'])->middlewa
 // ***** Admin Page *****
 
 Route::get('/addmenu', function () {
-    return view('admin/addmenu');
+    return view('admin/menu/addmenu');
 });
 
 Route::post('/addmenuitem', [MenuController::class, 'storeMenu']);
 Route::get('/deletemenu', [MenuController::class, 'deleteMenuPage']);
 Route::post('/deletemenuitem', [MenuController::class, 'deleteMenu']);
 
-Route::get('/adminlayout', function () {
-    return view('admin/layout/adminLayoutPage');
+Route::get('/admin', function () {
+    return view('admin/adminPage');
 });
 
 Route::get('/adminmenu', [AdminController::class, 'adminMenuIndex']);
@@ -82,10 +88,9 @@ Route::get('/adminpayment', function () {
     return view('admin/paymentlist');
 });
 
-Route::get('/adminuser', function () {
-    return view('admin/userlist');
-});
-Route::get('/deleteUser', [AdminController::class, 'adminUserIndex']);
+Route::get('/adminuser', [AdminController::class, 'adminUserIndex']);
+Route::get('/deleteuser', [AdminController::class, 'deleteUserPage']);
+Route::post('/deletemenuitem', [AdminController::class, 'deleteUser']);
 
 Route::get('/admintrans', function () {
     return view('admin/transactionlist');
