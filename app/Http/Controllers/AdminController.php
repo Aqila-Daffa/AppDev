@@ -32,8 +32,4 @@ class AdminController extends Controller
         return back()->with('success', 'User was deleted!');
     }
 
-    public function adminUserIndex(){
-        $user = User::all();
-        return view('admin/menu', compact('user'));
-    }
 }
