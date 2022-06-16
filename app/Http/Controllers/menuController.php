@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\FoodMenu;
 use Illuminate\Http\Request;
 
@@ -10,14 +11,14 @@ class menuController extends Controller
     public function indexAction(){
         $product = $_GET["product"];
         $menuItems = FoodMenu::where('type', $product)->get();
-        return view('client/menupage', ['prod' => $product, 'menu' => $menuItems]);
+        return view('client/menu/menupage', ['prod' => $product, 'menu' => $menuItems]);
     }
 
     public function menuDetail(){
         $product = $_GET["product"];
         $fname = $_GET["name"];
         $menuDetail = FoodMenu::where('name', $fname)->get();
-        return view('client/menudetail', ['prod' => $product, 'foodName' => $menuDetail]);
+        return view('client/menu/menudetail', ['prod' => $product, 'foodName' => $menuDetail]);
     }
 
     public function storeMenu(Request $request){
@@ -41,10 +42,14 @@ class menuController extends Controller
     public function deleteMenuPage(){
 
         $menu = FoodMenu::all();
-        return view('admin/deletemenu', ['menulist' => $menu]);
+        return view('admin/menu/deletemenu', ['menulist' => $menu]);
     }
 
     public function deleteMenu(Request $request){
+        //dd($request);
+        $menuId = $request->menu;
+        $menu = FoodMenu::findorfail($menuId);
+        $menu->delete();
         return back()->with('success', 'Menu item was deleted!');
     }
 }

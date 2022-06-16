@@ -21,4 +21,8 @@ class FoodMenu extends Model
         'image',
         'price',
     ];
+
+    public function cart(){
+        return $this->hasMany(Cart::class);
+    }
 }

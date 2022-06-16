@@ -4,13 +4,28 @@
 
   <!-- Products -->
   <div class="row">
-    <div class="col-8 col-md-4 border border-primary bg-info rounded-3 p-1 mx-auto mb-5" style="margin-top: 85px;">
+    <div class="col-8 col-md-4 border border-primary bg-info rounded-3 p-1 mx-auto mb-4" style="margin-top: 85px;">
         <h2 class="text-center">{{ $prod }}</h2>
     </div>
-    </div> 
+  </div>
+
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="mb-5">
+            <div class="input-group">
+                <input type="text" id="search" name="search" class="form-control" placeholder="Search {{ $prod }}">
+                <label for="search"></label>
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-outline-info"><i class="fa fa-search mr-1"></i> Search</button>
+                </div>
+            </div>
+          </div>
+      </div>
+  </div>
+
     <!-- Product Cards -->
     <div class="container">
-      <div class="row g-3 align-items-center">
+      <div class="row g-3 align-items-center mt-2">
         @foreach($menu as $menuItem)
         <div class="col-md">
           <div class="card mx-auto shadow-lg" style="width: 18rem;">

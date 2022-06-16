@@ -20,8 +20,9 @@ class Cart extends Model
         'menuId',
         'quantity',
         'notes',
-        'menuImage',
-        'menuName',
-        'menuPrice',
     ];
+
+    public function menu(){
+        return $this->belongsTo(FoodMenu::class, 'food_menu_id');
+    }
 }

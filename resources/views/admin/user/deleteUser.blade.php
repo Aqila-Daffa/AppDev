@@ -34,16 +34,17 @@
       @if(session()->has('success'))
           <div class="alert alert-success alert-dismissible fade show my-2 text-center" role="alert">
               {{ session('success') }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
           </div>
       @endif
       <form method="post" action="/deletemenuitem" enctype="multipart/form-data">
         @csrf
         <h1 class="h3 mb-4 fw-normal">Delete Menu Item</h1>
 
-        <select class="form-select form-select-sm mt-2" aria-label=".form-select-lg example" id="fname" name="fname">
-            <option hidden>Select Menu Item</option>
-            @foreach($menulist as $menus)
-            <option value={{ $menus['name'] }}>{{ $menus['name'] }}</option>
+        <select class="form-select form-select-sm mt-2" aria-label=".form-select-lg example" id="user" name="user">
+            <option hidden>Select User</option>
+            @foreach($userlist as $users)
+            <option value={{ $users['id'] }}>{{ $users['username'] }}</option>
             @endforeach
           </select>
           

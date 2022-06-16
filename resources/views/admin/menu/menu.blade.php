@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title> Responsiive Admin Dashboard | CodingLab </title>
+    <title> Admin Menu | OSOS </title>
     <link href="{{url('css/style.css')}}" rel="stylesheet" type="text/css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -17,21 +17,21 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="/adminlayout" class="active">
+          <a href="/admin" >
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="/adminmenu">
-            <i class='bx bx-box'></i>
+          <a href="/adminmenu" class="active">
+            <i class='bx bx-box' ></i>
             <span class="links_name">Menu</span>
           </a>
         </li>
         <li>
           <a href="/admintrans">
             <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Transaction list</span>
+            <span class="links_name">Transaction List</span>
           </a>
         </li>
         <li>
@@ -40,21 +40,20 @@
             <span class="links_name">Payment List</span>
           </a>
         </li>
+
         <li>
           <a href="/">
             <i class='bx bx-coin-stack' ></i>
             <span class="links_name">Switch to User</span>
           </a>
         </li>
- 
         <li>
           <a href="/adminuser">
             <i class='bx bx-list-ul' ></i>
             <span class="links_name">User List</span>
           </a>
         </li>
-
-
+        
         <li>
           <a href="#">
             <i class='bx bx-book-alt' ></i>
@@ -75,48 +74,73 @@
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Dashboard</span>
+        <span class="dashboard">Menu</span>
       </div>
       
     </nav>
 
     <div class="home-content">
       <div class="overview-boxes">
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Menu</div>
-            <div class="indicator">              
-              <span class="text">For admin to check and edit menu in the restaurant</span>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Transaction List</div>
-            <div class="indicator">
-              <span class="text">For admin to check and edit transaction </span>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Payment List</div>
-            <div class="indicator">
-              <span class="text">For admin to check user payment status</span>
-            </div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="right-side">
-            <div class="box-topic">Switch to User/Cashier</div>
-            <div class="indicator">
-              <span class="text">For admin to switch the view as a user or cashier</span>
-            </div>
-          </div>
-        </div>
+        
       </div>
 
-     
+      <div class="sales-boxes">
+        <div class="recent-sales box">
+          <div class="title">Menu List</div>
+          <div class="sales-details">
+            <ul class="details">
+              <li class="topic">ID</li>
+              @foreach($menulist as $menus)
+              <li>{{ $menus['id'] }}</li>
+              @endforeach
+            </ul>
+            <ul class="details">
+            <li class="topic">NAME</li>
+            @foreach($menulist as $menus)
+              <li>{{ $menus['name'] }}</li>
+              @endforeach
+          </ul>
+          <ul class="details">
+            <li class="topic">TYPE</li>
+            @foreach($menulist as $menus)
+              <li>{{ $menus['type'] }}</li>
+              @endforeach
+          </ul>
+          <ul class="details">
+            <li class="topic">PRICE</li>
+            @foreach($menulist as $menus)
+              <li>{{ $menus['price'] }}</li>
+              @endforeach
+          </ul>
+          </div>
+          
+        </div>
+        <div class="top-sales box">
+          <div class="title">Options</div>
+          <ul class="top-sales-details">
+            <li>
+            <a href="/addmenu">
+              <img src="images/plus.png" alt="">
+              <span class="product">Insert Menu</span>
+            </a>
+            
+          </li>
+          <li>
+            <a href="/deletemenu">
+              <img src="images/minus.png" alt="">
+              <span class="product">Delete Menu </span>
+            </a>
+           
+          </li>
+          <li>
+           
+            
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <script>
    let sidebar = document.querySelector(".sidebar");

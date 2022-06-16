@@ -43,22 +43,52 @@
                         <div class="d-flex flex-row align-items-center">
                           <div>
                             <img
-                              src="{{$cart['menuImage']}}"
+                              src="{{$cart->menu->image}}"
                               class="img-fluid rounded-3" alt="Shopping item" style="width: 65px;">
                           </div>
                           <div class="ms-3">
-                            <h5>{{$cart['menuName']}}</h5>
+                            <h5>{{$cart->menu->name}}</h5>
                             <p class="small mb-0">{{$cart['notes']}}</p>
                           </div>
                         </div>
                         <div class="d-flex flex-row align-items-center">
-                          <div style="width: 50px;">
-                            <h5 class="fw-normal mb-0">{{$cart['quantity']}}</h5>
+
+                          {{-- Add Quantity --}}
+                          <div class="input-group input-group-sm mx-3">
+                            <span class="input-group-btn">
+                              <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                                <i class="fa-solid fa-minus"></i>
+                              </button>
+                          </span>
+                          <input type="text" id="quantity" name="quantity" class="form-control input-number" value="{{$cart['quantity']}}" min="1" max="999"  size="3">
+                          <span class="input-group-btn">
+                              <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                                <i class="fa-solid fa-plus"></i>
+                              </button>
+                          </span>    
                           </div>
-                          <div style="width: 80px;">
-                            <h5 class="mb-0">RM {{$cart['menuPrice']}}</h5>
+                          <script>
+
+                          </script>
+
+                          {{-- calculate item price based on quantity ordered --}}
+                          <?php 
+                          $itmQtt = $cart['quantity'];
+                          $itmPrc = $cart->menu->price;
+                          $itemTotPrice = $itmPrc * $itmQtt;
+                          ?>
+
+                          <div class="mx-3">
+                            <h5 class="mb-0">RM {{$itemTotPrice}}</h5>
                           </div>
-                          <a href="#!" style="color: #cecece;"><i class="fas fa-trash-alt"></i></a>
+
+                          {{-- Delete Cart --}}
+                          <form action="deletecart" method="post">
+                            @csrf
+                            <input type="hidden" name="cartId" id="cartId" value="{{$cart['id']}}">
+                            <button type="submit"><i class="fas fa-trash-alt"></i></button>
+                          </form>
+
                         </div>
                       </div>
                     </div>
@@ -132,9 +162,9 @@
                         <p class="mb-2">Total Order</p>                 
                           <?php $torOrder = 0; ?>
                           @foreach($cartItem as $cart)
-                          <?php $torOrder++; ?>
+                          <?php $torOrder += $cart['quantity']; ?>
                           @endforeach
-                        <p class="mb-2"><?php echo ($torOrder == 1) ? $torOrder." Item" : $torOrder." Items"?></p>
+                        <p class="mb-2"><?php echo ($torOrder == 0 || $torOrder == 1) ? $torOrder." Item" : $torOrder." Items"?></p>
                         {{-- (Condition)?(thing's to do if condition true):(thing's to do if condition false) --}}
                       </div>
                       <input type="hidden" name="totOrder" id="totOrder" value="{{ $torOrder }}">
@@ -144,7 +174,7 @@
                         <?php $subTotal = 0; ?>
                         @foreach($cartItem as $cart)
                         <?php 
-                        $subTotal += $cart['menuPrice']; 
+                        $subTotal += $cart->menu->price * $cart['quantity']; 
                         ?>
                         @endforeach
                         <p class="mb-2">RM {{$subTotal}}</p>

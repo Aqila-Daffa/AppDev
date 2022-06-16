@@ -27,6 +27,26 @@ a:link {
     padding: 10px;
 }
 
+.profile_logo_bord {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 50%;
+    background: rgb(80, 223, 241);
+    top: -70px;
+    text-align: center;
+}
+
+.profile_logo {
+    position: absolute;
+    top: -5px;
+    height: 160px;
+    width: 160px;
+    padding: 10px;
+}
+
 .dropdown-menu {
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.8);

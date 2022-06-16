@@ -15,13 +15,10 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->string('userId');
-            $table->string('menuId');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('food_menu_id')->constrained();
             $table->integer('quantity');
             $table->string('notes');
-            $table->string('menuImage');
-            $table->string('menuName');
-            $table->double('menuPrice');
         });
     }
 

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    <link href="{{url('css/styl2.css')}}" rel="stylesheet" type="text/css">
+    <link href="{{url('css/style2.css')}}" rel="stylesheet" type="text/css">
     <script src="{{url('js/vjs1.js')}}" type="text/javascript"></script> 
 
     <!-- Bootstrap CSS -->

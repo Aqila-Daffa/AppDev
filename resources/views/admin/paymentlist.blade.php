@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title> Responsiive Admin Dashboard | CodingLab </title>
+    <title> Admin Payment | OSOS </title>
     <link href="{{url('css/style.css')}}" rel="stylesheet" type="text/css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -17,7 +17,7 @@
     </div>
       <ul class="nav-links">
         <li>
-          <a href="/adminlayout">
+          <a href="/admin">
             <i class='bx bx-grid-alt' ></i>
             <span class="links_name">Dashboard</span>
           </a>
