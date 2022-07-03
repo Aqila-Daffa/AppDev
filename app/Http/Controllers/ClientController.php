@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ClientController extends Controller
 {
@@ -41,6 +42,19 @@ class ClientController extends Controller
      */
     public function update(Request $request)
     {
-        dd($request);
+        //dd($request);
+        $val = $request->validate([
+            'username' => 'required|min:3|max:100',
+            'email' => 'required|email:dns',
+            'password' => 'required|min:6|max:255',
+            'confirmationPassword' => 'required|same:password|min:6|max:255'
+        ]);
+        
+        $val['password'] = Hash::make($val['password']);
+        
+        $userId = auth()->user()->id;
+        $userUpdt = User::findorfail($userId);
+        $userUpdt->update($val);
+        return redirect("/profile")->with('success', 'Data Updated Successfully');
     }
 }

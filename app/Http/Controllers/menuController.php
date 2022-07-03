@@ -10,8 +10,16 @@ class menuController extends Controller
 {
     public function indexAction(){
         $product = $_GET["product"];
-        $menuItems = FoodMenu::where('type', $product)->get();
-        return view('client/menu/menupage', ['prod' => $product, 'menu' => $menuItems]);
+        $search = request()->query('search');
+        $menuItems = FoodMenu::where('type', $product)->latest();
+
+        if($search){
+            $menuItems->where('name', 'like', '%' . $search . '%');
+            //$menuItems->where('name', $search);
+            return view('client/menu/menupage', ['prod' => $product, 'menu' => $menuItems->get()]);
+        }else{           
+            return view('client/menu/menupage', ['prod' => $product, 'menu' => $menuItems->get()]);
+        }
     }
 
     public function menuDetail(){

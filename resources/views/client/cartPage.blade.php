@@ -1,8 +1,8 @@
 @extends('client.layout.orderingLayout')
-@section('title', 'OSOS | Menu')
+@section('title', 'OSOS | Cart')
 @section('section')
 
-<section class="h-100 h-custom" style="margin-top: 50px;">
+<section class="h-100 h-custom" style="margin-top: 70px;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         @if(session()->has('success'))
@@ -26,7 +26,10 @@
                     <div>
                       <?php $amount = 0; ?>
                       @foreach($cartItem as $cart)
-                      <?php $amount++; ?>
+                      <?php 
+                      $amount++;
+                      $cId = $cart->id;
+                      ?>
                       @endforeach
                       <p class="mb-1">Shopping cart</p>
                       <p class="mb-0">You have {{$amount}} items in your cart</p>
@@ -54,22 +57,24 @@
                         <div class="d-flex flex-row align-items-center">
 
                           {{-- Add Quantity --}}
-                          <div class="input-group input-group-sm mx-3">
-                            <span class="input-group-btn">
-                              <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
-                                <i class="fa-solid fa-minus"></i>
-                              </button>
-                          </span>
-                          <input type="text" id="quantity" name="quantity" class="form-control input-number" value="{{$cart['quantity']}}" min="1" max="999"  size="3">
+                          <form action="editcart" method="post">
+                            @csrf
+                          <input type="hidden" name="menuId" id="menuId" value="{{ $cart['food_menu_id'] }}">
+                          {{-- <div class="d-flex flex-row align-items-center">
+                            <div style="width: 90px;">
+                              <p class="small mb-0">Quantity</p>
+                              <input type="number" name="quantity" id="quantity" class="fw-normal mb-0" value="{{$cart['quantity']}}" min="1" max="999">
+                            </div>
+                          </div> --}}
+                          <div class="input-group input-group-sm mx-2" style="width: 100px;">
+                          <input type="number" id="quantity" name="quantity" class="form-control input-number" value="{{$cart['quantity']}}" min="1" max="999"  size="3">
                           <span class="input-group-btn">
-                              <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
-                                <i class="fa-solid fa-plus"></i>
+                              <button type="submit" class="quantity-right-plus btn btn-success btn-number">
+                                <i class="fa-solid fa-pen-to-square"></i>
                               </button>
                           </span>    
                           </div>
-                          <script>
-
-                          </script>
+                        </form>
 
                           {{-- calculate item price based on quantity ordered --}}
                           <?php 
@@ -78,8 +83,8 @@
                           $itemTotPrice = $itmPrc * $itmQtt;
                           ?>
 
-                          <div class="mx-3">
-                            <h5 class="mb-0">RM {{$itemTotPrice}}</h5>
+                          <div class="mx-2">
+                            <h5 class="mb-0">RM{{$itemTotPrice}}</h5>
                           </div>
 
                           {{-- Delete Cart --}}
@@ -101,61 +106,20 @@
                   <div class="card bg-primary text-white rounded-3">
                     <div class="card-body">
                       <div class="d-flex justify-content-between align-items-center mb-4">
-                        <h5 class="mb-0">Card details</h5>
+                        <h5 class="mb-0">Payment details</h5>
                         <h5>{{auth()->user()->username}}</h5>
                       </div>
 
-                      <form action="/payment" method="post">
+                      <form action="/checkout" method="get">
                         @csrf
                       <input type="hidden" name="userId" id="userId" value="{{ auth()->user()->id }}">
-                      <p class="small mb-2">Card type</p>
-                      <input type="radio" id="mastercard" name="card" value="mastercard">
-                      <label for="mastercard" class="text-white"><i
-                      class="fab fa-cc-mastercard fa-2x me-2"></i></label>
+                                 
+                      <div class="form-outline form-white mb-3">
+                        <input type="number" id="tableNumb" name="tableNumb" class="form-control form-control-lg" min="1" max="999"
+                          placeholder="Table Number" required/>
+                        <label class="form-label" for="tableNumb">Table Number</label>
+                      </div>
 
-                      <input type="radio" id="visa" name="card" value="visa">
-                      <label for="visa" class="text-white"><i
-                      class="fab fa-cc-visa fa-2x me-2"></i></label>
-
-                      <input type="radio" id="paypal" name="card" value="paypal">
-                      <label for="paypal" class="text-white"><i
-                      class="fab fa-cc-paypal fa-2x me-2"></i></label>
-  
-                        <div class="form-outline form-white mb-3 mt-4">
-                          <input type="text" id="typeName" name="typeName" class="form-control form-control-lg" siez="17"
-                            placeholder="Cardholder's Name" required/>
-                          <label class="form-label" for="typeName">Cardholder's Name</label>
-                        </div>
-
-                        <div class="form-outline form-white mb-3">
-                          <input type="number" id="typeTable" name="typeTable" class="form-control form-control-lg" min="1" max="999"
-                            placeholder="Table Number" required/>
-                          <label class="form-label" for="typeName">Table Number</label>
-                        </div>
-
-                        <div class="form-outline form-white mb-3">
-                          <input type="text" id="typeText" name="typeNumber" class="form-control form-control-lg" siez="17"
-                            placeholder="1234 5678 9012 3457" minlength="19" maxlength="19" required/>
-                          <label class="form-label" for="typeText">Card Number</label>
-                        </div>
-  
-                        <div class="row mb-3">
-                          <div class="col-md-6">
-                            <div class="form-outline form-white">
-                              <input type="text" id="typeExp" name="typeExp" class="form-control form-control-lg"
-                                placeholder="MM/YYYY" size="7" minlength="7" maxlength="7" required/>
-                              <label class="form-label" for="typeExp">Expiration</label>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-outline form-white">
-                              <input type="password" id="typeCvv" name="typeCvv" class="form-control form-control-lg"
-                                placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3" required/>
-                              <label class="form-label" for="typeCvv">Cvv</label>
-                            </div>
-                          </div>
-                        </div>
-  
                       <hr class="my-3">
 
                       <div class="d-flex justify-content-between">
@@ -199,7 +163,7 @@
   
                       <button type="submit" class="btn btn-info btn-block btn-lg">
                         <div class="d-flex justify-content-between">
-                          <span>Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
+                          <span>Go to Checkout <i class="fas fa-long-arrow-alt-right ms-2"></i></span>
                         </div>
                       </button>
                     </form>

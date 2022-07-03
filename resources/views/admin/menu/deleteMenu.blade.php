@@ -52,6 +52,7 @@
     
         <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Delete</button>
       </form>
+      <a class="w-100 btn btn-lg btn-info mt-3" href="adminmenu">Cancel</a>
     </main>
     
 </body>

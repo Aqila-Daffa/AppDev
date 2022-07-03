@@ -5,6 +5,12 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-10 col-md-6 col-lg-5 mx-auto">
+                @if(session()->has('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{ session('success') }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
              <div class="card border-0 shadow" style="border-radius: 10%; background:rgb(54, 133, 154); top: 70px; margin-top: 30px;">
                     <div class="d-flex justify-content-center mb-2">
                     <div class="profile_logo_bord">

@@ -42,12 +42,12 @@
                     <input type="password" class="form-control" name="password" id="Pass" placeholder="Password" required>
                     <label for="Pass"><img src="{{url('images/lock.svg')}}" width="18px" height="20px" style="margin-right: 7px; margin-top:-7px;">Password</label>
                 </div>
-                <div class="form-check mb-3">
+                {{-- <div class="form-check mb-3">
                     <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
                     <label class="form-check-label text-white" for="rememberPasswordCheck">
                     Remember password
                     </label>
-                </div>
+                </div> --}}
                 <div class="d-grid">
                     <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit">Sign
                     in</button>

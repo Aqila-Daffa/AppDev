@@ -16,9 +16,7 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('food_menu_id')->constrained();
             $table->string('tableNumber');
-            $table->string('payment_proof');
             $table->integer('totalOrder');
             $table->double('totalPrice');
             $table->timestamps();

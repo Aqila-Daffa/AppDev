@@ -38,8 +38,8 @@ session_start();
       <nav class="navbar fixed-top navbar-expand-lg navbar-dark" style="font-family: 'Roboto', sans-serif;">
         <div class="container-fluid">
           <a class="navbar-brand" href="/">
-            <img src="https://logos-world.net/wp-content/uploads/2020/04/Apple-Logo-1977-1998-700x394.png" alt="logo" width="80" height="40" class="d-inline-block mb-3">
-            <div class="d-inline-block" style="font-size: 25px; margin-left:-15px; font-family: 'Georgia', sans-serif;">OSOS</div> 
+            <img src="{{url('images/osos.png')}}" alt="logo" width="70" height="60" class="d-inline-block mb-3">
+            <div class="d-inline-block" style="font-size: 25px; margin-left: 5px; font-family: 'Georgia', sans-serif;">OSOS</div> 
           </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -77,6 +77,11 @@ session_start();
                         <ul class="dropdown-menu shadow dropdown-menu-dark dropdown-menu-lg-end">
                           <a class="dropdown-item" href="/profile"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Profile</a>
                           {{-- <li class="dropdown-item" href="#"><i class="fas fa-id-card-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Switch to Admin</li> --}}
+
+                          @can('admin')
+                          <a class="dropdown-item" href="/admin"><i class="fas fa-id-card-alt fa-sm fa-fw mr-2 text-gray-400"></i>&nbsp;Switch to Admin</a>
+                          @endcan
+
                           <div class="dropdown-divider"></div>
                           <form action="/logout" method="post">
                             @csrf

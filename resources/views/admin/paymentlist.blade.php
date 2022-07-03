@@ -5,9 +5,21 @@
     <meta charset="UTF-8">
     <title> Admin Payment | OSOS </title>
     <link href="{{url('css/style.css')}}" rel="stylesheet" type="text/css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+      .btn:focus {
+            outline: none;
+        }
+     </style>
    </head>
 <body>
   <div class="sidebar">
@@ -26,12 +38,6 @@
           <a href="/adminmenu">
             <i class='bx bx-box' ></i>
             <span class="links_name">Menu</span>
-          </a>
-        </li>
-        <li>
-          <a href="/admintrans">
-            <i class='bx bx-list-ul' ></i>
-            <span class="links_name">Transaction list</span>
           </a>
         </li>
         <li>
@@ -54,27 +60,22 @@
           </a>
         </li>
         
-        <li>
-          <a href="#">
-            <i class='bx bx-book-alt' ></i>
-            <span class="links_name">Switch to Cashier</span>
-          </a>
-        </li>
-       
-       
         <li class="log_out">
-          <a href="#">
-            <i class='bx bx-log-out'></i>
-            <span class="links_name">Log out</span>
-          </a>
-        </li>
+          <form action="/logout" method="post">
+            @csrf
+            <button type="submit" class="btn">
+              <i class="bx bx-log-out"></i>
+              <span class="links_name" style="color:white">Log out</span>
+            </button>
+          </form>
+          </li>
       </ul>
   </div>
   <section class="home-section">
     <nav>
       <div class="sidebar-button">
         <i class='bx bx-menu sidebarBtn'></i>
-        <span class="dashboard">Payment List</span>
+        <span class="dashboard">Payment</span>
       </div>
       
     </nav>
@@ -86,60 +87,41 @@
 
       <div class="sales-boxes">
         <div class="recent-sales box">
-          <div class="title">Recent Payment</div>
+          <div class="title">Payment List</div>
           <div class="sales-details">
             <ul class="details">
-              <li class="topic">Date</li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
-              <li><a href="#">02 Jan 2021</a></li>
+              <li class="topic">PAYMENT ID</li>
+              @foreach($payment as $pay)
+              <li>{{ $pay['id'] }}</li>
+              @endforeach
             </ul>
             <ul class="details">
-            <li class="topic">Customer</li>
-            <li><a href="#">Alex Doe</a></li>
-            <li><a href="#">David Mart</a></li>
-            <li><a href="#">Roe Parter</a></li>
-            <li><a href="#">Diana Penty</a></li>
-            <li><a href="#">Martin Paw</a></li>
-            <li><a href="#">Doe Alex</a></li>
-            <li><a href="#">Aiana Lexa</a></li>
-            <li><a href="#">Rexel Mags</a></li>
-             <li><a href="#">Tiana Loths</a></li>
+            <li class="topic">USER ID</li>
+            @foreach($payment as $pay)
+            <li>{{ $pay['user_id'] }}</li>
+            @endforeach
           </ul>
           <ul class="details">
-            <li class="topic">Payment Status</li>
-            <li><a href="#">Paid</a></li>
-            <li><a href="#">Paid</a></li>
-            <li><a href="#">Paid</a></li>
-            <li><a href="#">Paid</a></li>
-            <li><a href="#">Paid</a></li>
-            <li><a href="#">Unpaid</a></li>
-            <li><a href="#">Unpaid</a></li>
-             <li><a href="#">Paid</a></li>
-            <li><a href="#">Paid</a></li>
+            <li class="topic">TABLE NUMBER</li>
+            @foreach($payment as $pay)
+            <li>{{ $pay['tableNumber'] }}</li>
+            @endforeach
           </ul>
           <ul class="details">
-            <li class="topic">Total</li>
-            <li><a href="#">RM 33</a></li>
-            <li><a href="#">RM 23</a></li>
-            <li><a href="#">RM 43</a></li>
-            <li><a href="#">RM 22</a></li>
-            <li><a href="#">RM 15</a></li>
-            <li><a href="#">RM 45</a></li>
-            <li><a href="#">RM 67</a></li>
-             <li><a href="#">RM 23</a></li>
-             <li><a href="#">RM 88</a></li>
+            <li class="topic">TOTAL ORDER</li>
+            @foreach($payment as $pay)
+            <li>{{ $pay['totalOrder'] }}</li>
+            @endforeach
+          </ul>
+          <ul class="details">
+            <li class="topic">TOTAL PRICE</li>
+            @foreach($payment as $pay)
+            <li>{{ $pay['totalPrice'] }}</li>
+            @endforeach
           </ul>
           </div>
-          <div class="button">
-            <a href="#">See All</a>
-          </div>
+          
         </div>
-       
       </div>
     </div>
   </section>

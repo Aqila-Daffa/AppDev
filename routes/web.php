@@ -62,9 +62,13 @@ Route::get('/menudetail', [MenuController::class, 'menuDetail'])->middleware('au
 // payment feature
 Route::get('/cart', [PaymentController::class, 'indexCart'])->middleware('auth');
 Route::post('/addcart', [PaymentController::class, 'addCart'])->middleware('auth');
+Route::post('/editcart', [PaymentController::class, 'updateQuantity'])->middleware('auth');
 Route::post('/deletecart', [PaymentController::class, 'deleteCart'])->middleware('auth');
 Route::post('/payment', [PaymentController::class, 'payment'])->middleware('auth');
 Route::get('/purchased', [PaymentController::class, 'indexPurchased'])->middleware('auth');
+
+Route::get('checkout','App\Http\Controllers\PaymentController@checkout');
+Route::post('checkout','App\Http\Controllers\PaymentController@afterpayment')->name('client.checkout');
 // ******************************
 
 
@@ -72,27 +76,25 @@ Route::get('/purchased', [PaymentController::class, 'indexPurchased'])->middlewa
 
 Route::get('/addmenu', function () {
     return view('admin/menu/addmenu');
-});
+})->middleware('admin');
 
-Route::post('/addmenuitem', [MenuController::class, 'storeMenu']);
-Route::get('/deletemenu', [MenuController::class, 'deleteMenuPage']);
-Route::post('/deletemenuitem', [MenuController::class, 'deleteMenu']);
+Route::post('/addmenuitem', [MenuController::class, 'storeMenu'])->middleware('admin');
+Route::get('/deletemenu', [MenuController::class, 'deleteMenuPage'])->middleware('admin');
+Route::post('/deletemenuitem', [MenuController::class, 'deleteMenu'])->middleware('admin');
 
 Route::get('/admin', function () {
     return view('admin/adminPage');
-});
+})->middleware('admin');
 
-Route::get('/adminmenu', [AdminController::class, 'adminMenuIndex']);
+Route::get('/adminmenu', [AdminController::class, 'adminMenuIndex'])->middleware('admin');
 
-Route::get('/adminpayment', function () {
-    return view('admin/paymentlist');
-});
+Route::get('/adminpayment', [AdminController::class, 'paymentIndex'])->middleware('admin');
 
-Route::get('/adminuser', [AdminController::class, 'adminUserIndex']);
-Route::get('/deleteuser', [AdminController::class, 'deleteUserPage']);
-Route::post('/deletemenuitem', [AdminController::class, 'deleteUser']);
+Route::get('/adminuser', [AdminController::class, 'adminUserIndex'])->middleware('admin');
+Route::get('/chooseuser', [AdminController::class, 'chooseUser'])->middleware('admin');
+Route::post('/adminedituserpage', [AdminController::class, 'editUserPage'])->middleware('admin');
+Route::post('/editprofile', [AdminController::class, 'editUser'])->middleware('admin');
+Route::get('/deleteuser', [AdminController::class, 'deleteUserPage'])->middleware('admin');
+Route::post('/deleteuseritem', [AdminController::class, 'deleteUser'])->middleware('admin');
 
-Route::get('/admintrans', function () {
-    return view('admin/transactionlist');
-});
 // ******************************

@@ -18,6 +18,7 @@
                 <form action="/updateprofile" method="post">
                     @csrf
                     @foreach ($user as $users)
+                    <input type="hidden" name="userId" id="userId" value="{{$users->id}}">
                     <div class="form-floating mb-3">
                         <input type="text" name="username" class="form-control @error('username') is-invalid @enderror" id="usName" placeholder="username" value="{{$users->username}}" required>
                         <label for="usName"><img src="{{url('images/usname.svg')}}" width="18px" height="20px" style="margin-right: 7px; margin-top:-7px;">Username</label>
@@ -28,13 +29,8 @@
                         @enderror
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="eml" placeholder="email" value="{{$users->email}}" required>
+                        <input type="email" class="form-control" name="email" id="eml" placeholder="email" value="{{$users->email}}" readonly>
                         <label for="eml"><img src="{{url('images/mail.svg')}}" width="18px" height="22px" style="margin-right: 7px; margin-top:-3px;">Email address</label>
-                        @error('email')
-                        <div class="invalid-feedback">
-                            {{$message}}
-                        </div>
-                        @enderror
                     </div>
                 <div class="form-floating mb-3">
                     <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="pass" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,255}" title="Password must contain at least one number and one uppercase and lowercase letter, and at least has 6 until 255 characters" required>
